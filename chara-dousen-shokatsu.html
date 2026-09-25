@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【ぷんぷん闘神】貂蝉・諸葛亮の評価とおすすめ装備・編成攻略</title>
+  <meta name="description" content="『ぷんぷん闘神』の最強SSランクキャラ「貂蝉」「諸葛亮」を徹底解説！それぞれのスキル性能や評価、おすすめ装備・秘宝、配置から相性の良いパーティ編成（シナジー）、育成の優先順位まで網羅。2体の圧倒的な強みを活かして最速攻略を目指そう！">
+  <style>
+    /* ==========================================
+       全体スタイル・変数設定 (デザイン統一)
+       ========================================== */
+    :root {
+      --primary-color: #d9383a;
+      --primary-dark: #b12527;
+      --secondary-color: #f39c12;
+      --bg-body: #f2f4f7;
+      --card-bg: #ffffff;
+      --text-main: #2c3e50;
+      --border-color: #e2e8f0;
+
+      /* 強み・弱み・属性カラー */
+      --advantage-bg: #ebf5fb;
+      --advantage-border: #3498db;
+      --weakness-bg: #fdf2f2;
+      --weakness-border: #e74c3c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.75;
+      color: var(--text-main);
+      background-color: var(--bg-body);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================
+       ヘッダー・ナビゲーション
+       ========================================== */
+    header {
+      background-color: #1a202c;
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .nav-back {
+      font-size: 0.85rem;
+      color: #cbd5e0;
+      background: rgba(255,255,255,0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .nav-back:hover {
+      background: var(--primary-color);
+      color: #ffffff;
+    }
+
+    /* ==========================================
+       記事コンテナ
+       ========================================== */
+    .article-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h1.article-title {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: #111;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      padding: 10px 16px;
+      border-radius: 6px;
+      margin-top: 36px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary-color);
+      background-color: #fff5f5;
+      padding: 8px 12px;
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    strong {
+      color: var(--primary-dark);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 32px 0;
+    }
+
+    /* ==========================================
+       キャラ基本情報カード (Card UI)
+       ========================================== */
+    .char-profile-card {
+      background-color: #f8f9fa;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .char-profile-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .char-profile-label {
+      font-size: 0.75rem;
+      color: #666;
+      font-weight: bold;
+    }
+
+    .char-profile-value {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #111;
+    }
+
+    .rank-badge-ss {
+      display: inline-block;
+      background: linear-gradient(135deg, #f1c40f, #f39c12);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    /* ==========================================
+       強み・弱みカード (Advantage / Weakness Box)
+       ========================================== */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .box-advantage {
+      background-color: var(--advantage-bg);
+      border-left: 5px solid var(--advantage-border);
+      padding: 14px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .box-weakness {
+      background-color: var(--weakness-bg);
+      border-left: 5px solid var(--weakness-border);
+      padding: 14px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .box-title {
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .box-advantage .box-title { color: #2980b9; }
+    .box-weakness .box-title { color: #c0392b; }
+
+    .box-list {
+      list-style: none;
+      font-size: 0.88rem;
+    }
+
+    .box-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .box-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* ==========================================
+       レスポンシブ・テーブル
+       ========================================== */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 24px;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    .custom-table th {
+      background-color: #34495e;
+      color: #ffffff;
+      text-align: left;
+      padding: 10px 12px;
+      white-space: nowrap;
+    }
+
+    .custom-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    /* シナジー（相性の良いキャラ）リスト */
+    .synergy-card {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .synergy-name {
+      font-weight: bold;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .synergy-desc {
+      font-size: 0.88rem;
+      color: #444;
+    }
+
+    /* ==========================================
+       フッター＆管理者エリア
+       ========================================== */
+    footer {
+      text-align: center;
+      padding: 24px 16px 12px 16px;
+      font-size: 0.8rem;
+      color: #718096;
+    }
+
+    .admin-link-wrapper {
+      text-align: center;
+      padding-bottom: 20px;
+      font-size: 0.75rem;
+    }
+
+    .admin-link {
+      color: #a0aec0;
+      text-decoration: underline;
+    }
+
+    .admin-link:hover {
+      color: var(--primary-color);
+    }
+
+    /* レスポンシブ調整 */
+    @media screen and (max-width: 480px) {
+      body { padding: 0; }
+      .article-container {
+        padding: 16px;
+        margin: 0;
+        border-radius: 0;
+      }
+      h1.article-title { font-size: 1.3rem; }
+      h2 { font-size: 1.15rem; padding: 8px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <div class="site-title">ぷんぷん闘神 攻略wiki</div>
+      <a href="index.html" class="nav-back">トップへ戻る</a>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <article class="article-container">
+
+    <h1 class="article-title">【ぷんぷん闘神】貂蝉・諸葛亮の評価とおすすめ装備・編成攻略</h1>
+
+    <p>スマホゲーム『ぷんぷん闘神』において、最高峰の性能を誇るSSランクのS+キャラクター「貂蝉（ちょうせん）」と「諸葛亮（しょかつりょう）」の徹底解説ガイドです！</p>
+    <p>どちらも入手できればゲーム序盤から高難易度コンテンツまで劇的に進行速度が変わる環境トップクラスの超強力キャラです。それぞれのスキル特徴、最適装備、秘宝、配置、そして相性抜群のパーティ編成（シナジー）を網羅して紹介します！</p>
+
+    <hr>
+
+    <!-- 第1章：貂蝉 -->
+    <h2>1. 【最強アタッカー】貂蝉（ちょうせん）の性能評価・おすすめ育成</h2>
+    
+    <!-- 貂蝉 基本情報カード -->
+    <div class="char-profile-card">
+      <div class="char-profile-item">
+        <span class="char-profile-label">キャラクター名</span>
+        <span class="char-profile-value">貂蝉（ちょうせん）</span>
+      </div>
+      <div class="char-profile-item">
+        <span class="char-profile-label">レア度 / 属性</span>
+        <span class="char-profile-value">S+ / 闇・他</span>
+      </div>
+      <div class="char-profile-item">
+        <span class="char-profile-label">役割（ロール）</span>
+        <span class="char-profile-value">単体高火力アタッカー</span>
+      </div>
+      <div class="char-profile-item">
+        <span class="char-profile-label">評価ランク / 育成優先度</span>
+        <span class="char-profile-value"><span class="rank-badge-ss">SSランク</span> （最高）</span>
+      </div>
+    </div>
+
+    <h3>スキル解説：高火力単体ダメージ＋強力行動不能「魅惑」</h3>
+    <p>貂蝉の最大の強みは、敵単体に壊滅的な物理・魔法ダメージを与えつつ、高確率で敵の行動を完全に阻害するデバフ「魅惑」を付与する点です。</p>
+    <p>さらにパッシブスキルにより、自身の攻撃力・会心率が常時アップするほか、「魅惑」状態の敵に対して与えるダメージが爆発的に上昇します。ボス戦やアリーナ（PvP）において相手のエースアタッカーを1体ずつ確実に完封・撃破できる圧倒的な単体殺傷力を誇ります。</p>
+
+    <h3>おすすめ装備・秘宝・陣形配置</h3>
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>おすすめ構成</th>
+            <th>理由・運用の狙い</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>おすすめ装備</strong></td>
+            <td>攻撃型セット / 会心率・会心ダメージ特化</td>
+            <td>単体威力を限界まで引き上げ、一撃で敵を葬るため。</td>
+          </tr>
+          <tr>
+            <td><strong>おすすめ秘宝</strong></td>
+            <td>状態異常付与率UP / 初回SPチャージ系秘宝</td>
+            <td>1ターン目から「魅惑」を付与し、先制攻撃で有利を作る。</td>
+          </tr>
+          <tr>
+            <td><strong>陣形配置</strong></td>
+            <td>後衛（火力・安全枠）</td>
+            <td>耐久値が低めのため、前衛のタンクでしっかり保護する。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>強みと弱み・運用ポイント</h3>
+    <div class="grid-2col">
+      <div class="box-advantage">
+        <div class="box-title">⭕ 貂蝉の強み</div>
+        <ul class="box-list">
+          <li>単体に対する火力が全キャラ中最高峰。</li>
+          <li>「魅惑」付与により相手キーマンのスキル発動を完封可能。</li>
+          <li>闇属性のため得意属性が多く、汎用性が非常に高い。</li>
+        </ul>
+      </div>
+      <div class="box-weakness">
+        <div class="box-title">❌ 貂蝉の弱み・注意点</div>
+        <ul class="box-list">
+          <li>HP・防御力が低いため、全体攻撃や後衛狙いに弱い。</li>
+          <li>複数敵を一網打尽にする範囲火力にはやや欠ける。</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>相性の良いキャラ（シナジー編成）</h3>
+    <div class="synergy-card">
+      <div class="synergy-name">曹操（S+ / 闇）</div>
+      <div class="synergy-desc">SP回復バフによって貂蝉のスキル回転率を大幅に向上。闇属性シナジーも発動し攻撃力が底上げされます。</div>
+    </div>
+    <div class="synergy-card">
+      <div class="synergy-name">呂布（S+ / 闇）</div>
+      <div class="synergy-desc">呂布が全体・範囲攻撃で敵のHPを削り、ミリ残りの敵を貂蝉が超高火力単体攻撃で即座に刈り取る最強Wアタッカー構成。</div>
+    </div>
+
+    <hr>
+
+    <!-- 第2章：諸葛亮 -->
+    <h2>2. 【万能サポート】諸葛亮（しょかつりょう）の性能評価・おすすめ育成</h2>
+
+    <!-- 諸葛亮 基本情報カード -->
+    <div class="char-profile-card">
+      <div class="char-profile-item">
+        <span class="char-profile-label">キャラクター名</span>
+        <span class="char-profile-value">諸葛亮（しょかつりょう）</span>
+      </div>
+      <div class="char-profile-item">
+        <span class="char-profile-label">レア度 / 属性</span>
+        <span class="char-profile-value">S+ / 風・他</span>
+      </div>
+      <div class="char-profile-item">
+        <span class="char-profile-label">役割（ロール）</span>
+        <span class="char-profile-value">全体支援 / 全体回復ヒーラー</span>
+      </div>
+      <div class="char-profile-item">
+        <span class="char-profile-label">評価ランク / 育成優先度</span>
+        <span class="char-profile-value"><span class="rank-badge-ss">SSランク</span> （最高）</span>
+      </div>
+    </div>
+
+    <h3>スキル解説：味方全体HP回復＋全体攻撃力10%UPバフ</h3>
+    <p>諸葛亮は、パーティに1体組み込むだけでパーティ全体の生存力と戦闘力を劇的に跳ね上げる万能の神サポートキャラです。</p>
+    <p>アクティブスキルで味方全体のHPを大きく回復させつつ、全体の攻撃力を10%底上げする強力なバフを同時に付与します。さらにパッシブスキルでパーティ全体の被ダメージを軽減しつつ、確率でSPをチャージするため、高難易度ステージの攻略には欠かせない存在です。</p>
+
+    <h3>おすすめ装備・秘宝・陣形配置</h3>
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>おすすめ構成</th>
+            <th>理由・運用の狙い</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>おすすめ装備</strong></td>
+            <td>HP・防御耐久セット / 与回復量UP系装備</td>
+            <td>諸葛亮自身が生き残り続け、回復とバフを撒き続けるため。</td>
+          </tr>
+          <tr>
+            <td><strong>おすすめ秘宝</strong></td>
+            <td>SP回復速度UP / ダメージ軽減・シールド付与秘宝</td>
+            <td>スキルの発動サイクルを早め、味方全体の全滅リスクを減らす。</td>
+          </tr>
+          <tr>
+            <td><strong>陣形配置</strong></td>
+            <td>中衛〜後衛</td>
+            <td>範囲攻撃の巻き込みを避けつつ、安全な位置から全体支援。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>強みと弱み・運用ポイント</h3>
+    <div class="grid-2col">
+      <div class="box-advantage">
+        <div class="box-title">⭕ 諸葛亮の強み</div>
+        <ul class="box-list">
+          <li>「全体回復」と「全体攻撃バフ」を1枠で両立できる圧巻の枠効率。</li>
+          <li>どんなアタッカー・タンクと組み合わせても腐らない万能性。</li>
+          <li>風属性キャラとの編成で属性陣形ボーナスを狙いやすい。</li>
+        </ul>
+      </div>
+      <div class="box-weakness">
+        <div class="box-title">❌ 諸葛亮の弱み・注意点</div>
+        <ul class="box-list">
+          <li>諸葛亮単体での攻撃能力はほぼゼロ（純粋なサポーター）。</li>
+          <li>育成が不十分だと回復量が伸び悩むため、一定のレベル投資が必要。</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>相性の良いキャラ（シナジー編成）</h3>
+    <div class="synergy-card">
+      <div class="synergy-name">劉備（S+ / 風）</div>
+      <div class="synergy-desc">諸葛亮の「全体回復＋攻撃バフ」に、劉備の「全体シールド＋被ダメージ軽減」が合わさることで、一切崩れない鉄壁の耐久陣形が完成します。</div>
+    </div>
+    <div class="synergy-card">
+      <div class="synergy-name">すべてのアタッカー（貂蝉、呂布、玉藻前など）</div>
+      <div class="synergy-desc">全体攻撃力10%UPバフはすべての火力役に恩恵があり、パーティ全体のDPS（時間あたり火力）を安全に高められます。</div>
+    </div>
+
+    <hr>
+
+    <!-- まとめ -->
+    <h2>3. 貂蝉＆諸葛亮の同時編成と育成優先度</h2>
+    <p>もしリセマラや「千連フェス」などで貂蝉と諸葛亮の両方を確保できた場合、<strong>迷わず2体同時にパーティへ編成しましょう！</strong></p>
+    <p>「諸葛亮」が全体バフと回復で盤面を安定させ、「貂蝉」が強化された超火力で敵の危険キャラを一撃で葬るという、攻守においてスキのない最強の黄金コンビが完成します。</p>
+
+    <div class="synergy-card" style="background-color: #fff8eb; border-color: var(--secondary-color);">
+      <div class="synergy-name" style="color: var(--secondary-color);">💡 2体の育成優先順位</div>
+      <div class="synergy-desc">
+        まずはメインアタッカーである<strong>「貂蝉」のレベルと装備強化を最優先</strong>で進めましょう。敵を倒す火力が確保できたら、追って「諸葛亮」のレベルを上げ、全体回復量とパーティの耐久力を高めていく進め方が最も効率的です。
+      </div>
+    </div>
+
+  </article>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2026 ぷんぷん闘神 攻略wikiガイド All Rights Reserved.</p>
+  </footer>
+
+  <!-- 管理者用クイック編集リンク -->
+  <div class="admin-link-wrapper">
+    <a href="https://github.com/kyou0313/punpun-toushin-guide/edit/main/chara-dousen-shokatsu.html" target="_blank" class="admin-link">[管理者用] このページを編集する</a>
+  </div>
+
+</body>
+</html>
