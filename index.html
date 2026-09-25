@@ -3,32 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【ぷんぷん闘神】序盤の効率的な進め方！初心者向け攻略ガイド</title>
-  <meta name="description" content="『ぷんぷん闘神』初心者向けの序盤の効率的な進め方を徹底解説！メインステージ進行のロードマップやおすすめのキャラ育成順番、毎日やるべき日課一覧、ダイヤの最適な使い道まで網羅。やりがちな罠・注意点を回避して最速で戦力を伸ばそう！">
+  <title>【ぷんぷん闘神】攻略wikiガイド｜リセマラ・最強Tier・初心者攻略まとめ</title>
+  <meta name="description" content="スマホゲーム『ぷんぷん闘神』の最新攻略wikiポータルサイトです。最速リセマラ当たりランキング、最強キャラ＆武器Tier表、序盤の効率的な進め方、初心者向け解説など攻略情報を網羅！">
   <style>
     /* ==========================================
-       全体スタイル・レスポンシブ基本設定
+       全体スタイル・変数設定
        ========================================== */
     :root {
       --primary-color: #d9383a;
       --primary-dark: #b12527;
       --secondary-color: #f39c12;
-      --bg-light: #f8f9fa;
-      --text-color: #2c3e50;
+      --bg-body: #f2f4f7;
+      --card-bg: #ffffff;
+      --text-main: #2c3e50;
+      --text-muted: #666666;
       --border-color: #e2e8f0;
-      
-      /* リスク度別カラー定義 */
-      --risk-high-border: #e74c3c;
-      --risk-high-bg: #fdf2f2;
-      --risk-high-tag: #e74c3c;
-      
-      --risk-mid-border: #f39c12;
-      --risk-mid-bg: #fef9e7;
-      --risk-mid-tag: #f39c12;
-
-      --risk-low-border: #3498db;
-      --risk-low-bg: #ebf5fb;
-      --risk-low-tag: #3498db;
+      --max-width: 1000px;
     }
 
     * {
@@ -39,493 +29,397 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.75;
-      color: var(--text-color);
-      background-color: #f2f4f7;
-      padding: 10px;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-body);
     }
 
-    .article-container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 24px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     /* ==========================================
-       見出し装飾 (H1, H2, H3)
+       ヘッダー・ナビゲーション
        ========================================== */
-    h1.article-title {
-      font-size: 1.5rem;
-      line-height: 1.4;
-      color: #111;
-      border-bottom: 3px solid var(--primary-color);
-      padding-bottom: 10px;
-      margin-bottom: 16px;
-    }
-
-    .article-container h2 {
-      font-size: 1.3rem;
+    header {
+      background-color: #1a202c;
       color: #ffffff;
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-      padding: 12px 16px;
-      border-radius: 6px;
-      margin-top: 36px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-    }
-
-    .article-container h3 {
-      font-size: 1.1rem;
-      color: var(--primary-dark);
-      border-left: 5px solid var(--primary-color);
-      background-color: #fff5f5;
-      padding: 8px 12px;
-      margin-top: 24px;
-      margin-bottom: 16px;
-    }
-
-    p {
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-
-    strong {
-      color: var(--primary-dark);
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--border-color);
-      margin: 32px 0;
-    }
-
-    /* ==========================================
-       要点リスト＆黄金ルールボックス
-       ========================================== */
-    .rule-box {
-      background-color: #fff8eb;
-      border: 2px solid var(--secondary-color);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 24px;
-    }
-
-    .rule-list {
-      list-style: none;
-    }
-
-    .rule-list li {
-      position: relative;
-      padding-left: 24px;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-
-    .rule-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .rule-list li::before {
-      content: "★";
-      position: absolute;
-      left: 0;
-      color: var(--secondary-color);
-      font-weight: bold;
-    }
-
-    /* ==========================================
-       デイリーチェックリストボックス
-       ========================================== */
-    .checklist-box {
-      background: #fdfdfd;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 24px;
-    }
-
-    .checklist {
-      list-style: none;
-    }
-
-    .checklist li {
-      position: relative;
-      padding-left: 28px;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-
-    .checklist li:last-child {
-      margin-bottom: 0;
-    }
-
-    .checklist li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
+      position: sticky;
       top: 0;
-      width: 20px;
-      height: 20px;
-      background: #27ae60;
-      color: #ffffff;
-      font-size: 0.75rem;
-      border-radius: 4px;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 16px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ==========================================
-       装飾テーブル（ロードマップ・素材一覧）
-       ========================================== */
-    .table-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      margin-bottom: 24px;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-    }
-
-    .custom-table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 500px;
-      font-size: 0.9rem;
-      background: #ffffff;
-    }
-
-    .custom-table th {
-      background-color: #34495e;
-      color: #ffffff;
-      text-align: left;
-      padding: 10px 12px;
-      white-space: nowrap;
-    }
-
-    .custom-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .custom-table tbody tr:nth-child(even) {
-      background-color: #f9fafb;
-    }
-
-    /* ==========================================
-       第6章：注意・警告カード (Warning Card)
-       ========================================== */
-    .warning-card {
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 20px;
-      border-left: 6px solid;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-    }
-
-    /* リスク高 */
-    .warning-card.risk-high {
-      background-color: var(--risk-high-bg);
-      border-color: var(--risk-high-border);
-    }
-    /* リスク中 */
-    .warning-card.risk-mid {
-      background-color: var(--risk-mid-bg);
-      border-color: var(--risk-mid-border);
-    }
-    /* リスク低 */
-    .warning-card.risk-low {
-      background-color: var(--risk-low-bg);
-      border-color: var(--risk-low-border);
-    }
-
-    .warning-card-header {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      align-items: center;
     }
 
-    .warning-card-title {
-      font-size: 1.05rem;
+    .site-title {
+      font-size: 1.25rem;
       font-weight: bold;
-      color: #111111;
+      color: #ffffff;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .risk-badge {
+    .site-title span {
+      background-color: var(--primary-color);
+      color: #fff;
       font-size: 0.75rem;
-      font-weight: bold;
-      color: #ffffff;
-      padding: 2px 8px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
 
-    .risk-badge.high { background-color: var(--risk-high-tag); }
-    .risk-badge.mid { background-color: var(--risk-mid-tag); }
-    .risk-badge.low { background-color: var(--risk-low-tag); }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 12px;
+    }
 
-    .warning-card-body {
+    nav a {
+      font-size: 0.85rem;
+      color: #cbd5e0;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background-color: rgba(255,255,255,0.1);
+      color: #ffffff;
+    }
+
+    /* ==========================================
+       ヒーローセクション（トップメインビジュアル）
+       ========================================== */
+    .hero {
+      background: linear-gradient(135deg, #2c3e50, #1a202c);
+      color: #ffffff;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      margin-bottom: 24px;
+    }
+
+    .quick-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-quick {
+      display: inline-block;
+      padding: 10px 18px;
       font-size: 0.9rem;
-      margin-bottom: 12px;
-      color: #333333;
-    }
-
-    .warning-card-solution {
-      background-color: #ffffff;
-      border-radius: 6px;
-      padding: 10px 12px;
-      font-size: 0.88rem;
-      border: 1px dashed var(--border-color);
-    }
-
-    .warning-card-solution-title {
       font-weight: bold;
-      color: #27ae60;
-      margin-bottom: 2px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease;
     }
 
-    /* レスポンシブ調整 */
-    @media screen and (max-width: 480px) {
-      body {
-        padding: 0;
+    .btn-quick:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================
+       メインコンテンツ（グリッドレイアウト）
+       ========================================== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #111111;
+      border-left: 5px solid var(--primary-color);
+      padding-left: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* おすすめ・主要記事カードリスト */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .article-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    }
+
+    .card-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 3px 8px;
+      margin: 12px 12px 0 12px;
+      border-radius: 4px;
+    }
+
+    .card-badge.tier { background-color: #e74c3c; }
+    .card-badge.reroll { background-color: #f39c12; }
+    .card-badge.beginner { background-color: #27ae60; }
+
+    .card-content {
+      padding: 12px 16px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #111111;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .card-link-btn {
+      text-align: center;
+      background-color: var(--bg-body);
+      color: var(--primary-dark);
+      font-weight: bold;
+      font-size: 0.85rem;
+      padding: 8px 0;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .article-card:hover .card-link-btn {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+
+    /* ==========================================
+       最新攻略ロードマップ / ショートカット
+       ========================================== */
+    .roadmap-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+
+    .roadmap-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .roadmap-step {
+      background: var(--bg-body);
+      border-left: 4px solid var(--secondary-color);
+      padding: 12px 14px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .step-num {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
+
+    .step-text {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #111;
+    }
+
+    /* ==========================================
+       フッター
+       ========================================== */
+    footer {
+      background-color: #1a202c;
+      color: #a0aec0;
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 0.8rem;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin-bottom: 6px;
+    }
+
+    /* スマホ表示調整 */
+    @media screen and (max-width: 600px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 8px;
       }
-      .article-container {
-        padding: 16px;
-        border-radius: 0;
+      .hero h1 {
+        font-size: 1.35rem;
       }
-      h1.article-title {
-        font-size: 1.3rem;
+      .hero p {
+        font-size: 0.85rem;
       }
-      .article-container h2 {
-        font-size: 1.15rem;
-        padding: 10px 12px;
+      .roadmap-steps {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
 
-<article class="article-container">
-
-  <!-- 記事タイトル -->
-  <h1 class="article-title">【ぷんぷん闘神】序盤の効率的な進め方！初心者向け攻略ガイド</h1>
-
-  <p>スマホゲーム『ぷんぷん闘神』を始めたばかりの初心者プレイヤー向けに、最速で戦力を伸ばしてスタートダッシュを決めるための序盤の効率的な進め方を解説します！<br>
-  「まず何から手をつけるべきか」「育成リソースはどう使うべきか」といった疑問を解消し、攻略で行き詰まらないための重要ポイントを網羅してまとめています。</p>
-
-  <hr>
-
-  <!-- 1. 序盤攻略の要点まとめ -->
-  <h2>1. 序盤攻略の要点まとめ（最速で進めるための3大ルール）</h2>
-  <p>序盤の攻略で周りと差をつけるために、まず押さえておきたい3つの黄金ルールです。</p>
-
-  <div class="rule-box">
-    <ul class="rule-list">
-      <li><strong>メインストーリー「征戦」を限界まで突破する！</strong><br>すべてのコンテンツ解放や放置効率の基本となるため、バトルに負けるまで最優先で進めましょう。</li>
-      <li><strong>育成リソースは「メインアタッカー1体」に集中投資する！</strong><br>パーティ全員を均等に育てるのはNG。エースアタッカー1体を特化育成するのが最速攻略の近道です。</li>
-      <li><strong>「高速戦闘（クイック放置）」は毎日必ず回収する！</strong><br>プレイヤーレベルが上がることで放置効率がさらにアップします。毎日無料〜低コスト分は必ず購入・消化しましょう。</li>
-    </ul>
-  </div>
-
-  <hr>
-
-  <!-- 2. 序盤攻略ロードマップ -->
-  <h2>2. 序盤攻略ロードマップ（メインステージ進行とコンテンツ解放）</h2>
-  <p>序盤はまず「征戦 3-10」のクリアを最優先目標として攻略を進めていきましょう。</p>
-
-  <div class="table-wrapper">
-    <table class="custom-table">
-      <thead>
-        <tr>
-          <th>解放条件・達成ステージ</th>
-          <th>解放コンテンツ・機能</th>
-          <th>優先度</th>
-          <th>攻略の狙い・目標</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>第1章クリア</strong></td>
-          <td>チュートリアルガチャ、基礎機能の一部</td>
-          <td>★★★☆☆</td>
-          <td>基本操作の習得。S「張星彩」を確定入手。</td>
-        </tr>
-        <tr>
-          <td><strong>第2章クリア</strong></td>
-          <td>各種報酬機能（メール・ログイン）、自由操作</td>
-          <td>★★★☆☆</td>
-          <td>特典回収。S+「関銀屏」を確定入手。</td>
-        </tr>
-        <tr>
-          <td><strong>征戦 3-10</strong></td>
-          <td>ガチャ全消化、デイリー要素全般</td>
-          <td>★★★★★</td>
-          <td><strong>【最優先目標】</strong> リセマラ完了基準点。放置報酬効率の底上げと日課の解放。</td>
-        </tr>
-        <tr>
-          <td><strong>征戦 4-20前後</strong></td>
-          <td>放置報酬効率アップ、高速戦闘の積極活用</td>
-          <td>★★★★☆</td>
-          <td>プレイヤーレベル上昇効率が急増。毎日詰まるまで最優先進行。</td>
-        </tr>
-        <tr>
-          <td><strong>征戦 特定ステージ</strong></td>
-          <td>「千連フェス」（引き直しガチャ）解放枠追加</td>
-          <td>★★★★☆</td>
-          <td>進行度に応じて引き直しガチャの選択枠が解禁。</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <hr>
-
-  <!-- 3. 効率的なキャラクター育成手順 -->
-  <h2>3. 効率的なキャラクター育成手順＆素材の集め方</h2>
-  <p>限られた育成リソースを無駄にしないため、育成の優先度を徹底しましょう。</p>
-
-  <h3>キャラクター育成の優先度</h3>
-  <ol style="margin-left: 20px; margin-bottom: 20px; font-size: 0.95rem;">
-    <li style="margin-bottom: 8px;"><strong>第1位：メインアタッカー（集中投資）</strong><br>リセマラで獲得したS+アタッカー（貂蝉、呂布、玉藻前など）または星上げが進んだアタッカー（張星彩など）にレベル・素材を最優先で注ぎ込みます。</li>
-    <li style="margin-bottom: 8px;"><strong>第2位：前衛タンク / 支援ヒーラー</strong><br>劉備や諸葛亮など、パーティの維持に必要なキャラはメインアタッカーより<strong>約20レベル下</strong>を維持して追従させます。</li>
-    <li style="margin-bottom: 8px;"><strong>第3位：サブアタッカー / その他</strong><br>余った余剰リソースで均等にレベルを上げていきます。</li>
-  </ol>
-
-  <h3>主な育成素材とおすすめ回収場所</h3>
-  <div class="table-wrapper">
-    <table class="custom-table">
-      <thead>
-        <tr>
-          <th>素材名</th>
-          <th>主な用途</th>
-          <th>主な獲得場所</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>キャラ経験値</strong></td>
-          <td>キャラクターのレベルアップ</td>
-          <td>メインストーリー放置報酬、デイリー試練（経験値ダンジョン）</td>
-        </tr>
-        <tr>
-          <td><strong>コイン</strong></td>
-          <td>各種強化・購入資金</td>
-          <td>メインストーリー放置報酬、デイリー試練（コインダンジョン）</td>
-        </tr>
-        <tr>
-          <td><strong>突破素材（限界突破石）</strong></td>
-          <td>レベル上限突破</td>
-          <td>デイリーダンジョン、限定ショップ・交換所</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <hr>
-
-  <!-- 4. 毎日やるべきこと・日課一覧 -->
-  <h2>4. 毎日やるべきこと・日課一覧（優先度別チェックリスト）</h2>
-  <p>毎日欠かさずこなすことで、無課金・微課金でも着実に戦力を伸ばせます。</p>
-
-  <div class="checklist-box">
-    <ul class="checklist">
-      <li><strong>デイリーミッション達成（優先度：最高）</strong><br>ミッションを全達成し、ダイヤ・各種育成素材・ガチャ券を回収。</li>
-      <li><strong>放置報酬受取＆高速戦闘の消化（優先度：最高）</strong><br>征戦を行き詰まるまで進めた後に実行し、無料分〜低コスト分を毎日回収。</li>
-      <li><strong>無料ガチャの受取（優先度：高）</strong><br>単発無料ガチャや定期更新分を忘れずに引く。</li>
-      <li><strong>デイリーダンジョン周回（優先度：高）</strong><br>経験値、コイン、突破素材ダンジョンの挑戦権を毎日使い切る。</li>
-      <li><strong>限定ショップ・交換所チェック（優先度：中）</strong><br>アリーナ/ギルド交換所などで割引されている突破石や重要素材を購入。</li>
-      <li><strong>フレンドスタミナ贈答（優先度：中）</strong><br>フレンドとポイントを相互に送り合い、ガチャや交換に活用。</li>
-    </ul>
-  </div>
-
-  <hr>
-
-  <!-- 5. ダイヤの集め方とおすすめの使い道 -->
-  <h2>5. ダイヤ（無償石）の集め方とおすすめの使い道</h2>
-  <p>序盤に集まったダイヤの使い道で、その後の進行速度に大きな差がつきます。</p>
-
-  <h3>ダイヤのおすすめ使い道（優先順位）</h3>
-  <ol style="margin-left: 20px; margin-bottom: 16px; font-size: 0.95rem;">
-    <li style="margin-bottom: 8px;"><strong>高速戦闘（クイック放置）の購入</strong>：無料分〜低コスト分は毎日購入推奨。レベル上げ・進行加速に直結。</li>
-    <li style="margin-bottom: 8px;"><strong>ショップの割引育成素材・突破石</strong>：育成のボトルネックになりやすい突破素材を効率良く確保。</li>
-    <li style="margin-bottom: 8px;"><strong>キャラガチャ（10連単位）</strong>：キャラクター確保および重複（星上げ）を狙う。</li>
-  </ol>
-  <p style="font-size: 0.88rem; color: #666; background: #f8f9fa; padding: 10px; border-radius: 4px;">※早期の武器ガチャへのダイヤ消費は非推奨です。まずはキャラ本体と星上げの確保を優先しましょう。</p>
-
-  <hr>
-
-  <!-- 6. 初心者が陥りがちな「4つの罠・注意点」 -->
-  <h2>6. 初心者が陥りがちな「4つの罠・注意点」</h2>
-  <p>初心者プレイヤーが進行中に躓きやすい注意ポイントです。リスク度と解決策を確認して効率よく攻略を進めましょう。</p>
-
-  <!-- TRAP_01 -->
-  <div class="warning-card risk-high">
-    <div class="warning-card-header">
-      <div class="warning-card-title">⚠️ 無凸S+キャラの過信</div>
-      <span class="risk-badge high">リスク：高</span>
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <div class="site-title">
+        ぷんぷん闘神 攻略wikiガイド
+        <span>最新攻略</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="reroll.html">リセマラ</a></li>
+          <li><a href="tier.html">Tier表</a></li>
+          <li><a href="beginner.html">序盤攻略</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="warning-card-body">
-      『ぷんぷん闘神』では星上げ（限界突破）のステータス上昇値が大きいため、無凸（限界突破なし）のS+キャラよりも星上げが進んだSキャラや確定配布キャラ（関銀屏・張星彩など）の方が一時的に強力になるケースがあります。
-    </div>
-    <div class="warning-card-solution">
-      <div class="warning-card-solution-title">💡 解決策・回避ルート</div>
-      無凸S+の厳選にこだわりすぎず、星上げが進んだSキャラも主戦力として積極的に採用・育成する。
-    </div>
-  </div>
+  </header>
 
-  <!-- TRAP_02 -->
-  <div class="warning-card risk-high">
-    <div class="warning-card-header">
-      <div class="warning-card-title">⚠️ 育成リソースの分散投資</div>
-      <span class="risk-badge high">リスク：高</span>
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>『ぷんぷん闘神』最速・最強攻略ポータル</h1>
+      <p>リセマラ当たりランキングから最強キャラTier表、初心者向け序盤の進め方まで徹底解説！</p>
+      <div class="quick-buttons">
+        <a href="reroll.html" class="btn-quick">🔥 最速リセマラ手順</a>
+        <a href="tier.html" class="btn-quick">🏆 最強キャラTier表</a>
+        <a href="beginner.html" class="btn-quick">🔰 序盤の進め方ガイド</a>
+      </div>
     </div>
-    <div class="warning-card-body">
-      パーティ全体を均等に育てると火力が分散し詰まりやすくなります。
-    </div>
-    <div class="warning-card-solution">
-      <div class="warning-card-solution-title">💡 解決策・回避ルート</div>
-      必ずメインアタッカーへ集中投資し、タンク・ヒーラーは20レベル下を維持して追従させる。
-    </div>
-  </div>
+  </section>
 
-  <!-- TRAP_03 -->
-  <div class="warning-card risk-mid">
-    <div class="warning-card-header">
-      <div class="warning-card-title">⚠️ 早期の武器ガチャ手出し</div>
-      <span class="risk-badge mid">リスク：中</span>
-    </div>
-    <div class="warning-card-body">
-      キャラ本体の確保および星上げが不十分な段階で武器ガチャにダイヤを費やすと、パーティ全体の戦力伸びが停滞します。
-    </div>
-    <div class="warning-card-solution">
-      <div class="warning-card-solution-title">💡 解決策・回避ルート</div>
-      序盤のダイヤはキャラ確保や高速戦闘、割引突破素材に優先利用する。
-    </div>
-  </div>
+  <!-- メインコンテンツ -->
+  <main class="container">
 
-  <!-- TRAP_04 -->
-  <div class="warning-card risk-low">
-    <div class="warning-card-header">
-      <div class="warning-card-title">ℹ️ 育成リセット機能の未確認</div>
-      <span class="risk-badge low">リスク：低</span>
-    </div>
-    <div class="warning-card-body">
-      序盤に育てたSキャラの素材が無駄になる心配はありません。
-    </div>
-    <div class="warning-card-solution">
-      <div class="warning-card-solution-title">💡 解決策・回避ルート</div>
-      レベルリセット・素材返還機能があるため、繋ぎとしてSキャラを安心して育てて問題ありません。
-    </div>
-  </div>
+    <!-- 主要攻略記事カードエリア -->
+    <h2 class="section-title">おすすめ主要攻略記事</h2>
+    <div class="card-grid">
 
-</article>
+      <!-- カード1：リセマラ -->
+      <a href="reroll.html" class="article-card">
+        <span class="card-badge reroll">リセマラ攻略</span>
+        <div class="card-content">
+          <div class="card-title">リセマラ当たりランキングと最速やり方｜千連フェス</div>
+          <div class="card-desc">「千連フェス」引き直しガチャのおすすめS+キャラや、アカウント削除を活用したアプリ再インストール不要のリセット周回手順を解説！</div>
+          <div class="card-link-btn">記事を見る ➔</div>
+        </div>
+      </a>
+
+      <!-- カード2：Tier表 -->
+      <a href="tier.html" class="article-card">
+        <span class="card-badge tier">ランキング</span>
+        <div class="card-content">
+          <div class="card-title">最強キャラ＆武器Tier表！おすすめ編成も解説</div>
+          <div class="card-desc">環境トップのSSランクキャラ評価から、火傷特化・SP高速連発などの最強おすすめパーティ編成、星上げの仕様まで完全網羅。</div>
+          <div class="card-link-btn">記事を見る ➔</div>
+        </div>
+      </a>
+
+      <!-- カード3：初心者攻略 -->
+      <a href="beginner.html" class="article-card">
+        <span class="card-badge beginner">初心者向け</span>
+        <div class="card-content">
+          <div class="card-title">序盤の効率的な進め方！初心者向け攻略ガイド</div>
+          <div class="card-desc">メインステージ（征戦）の解放ロードマップ、毎日やるべき日課チェックリスト、初心者が陥りがちな「4つの罠」と解決策を紹介！</div>
+          <div class="card-link-btn">記事を見る ➔</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- 初心者向け攻略ロードマップ -->
+    <h2 class="section-title">初心者向け攻略ロードマップ</h2>
+    <div class="roadmap-box">
+      <div class="roadmap-steps">
+        <div class="roadmap-step">
+          <div class="step-num">STEP 1</div>
+          <div class="step-text">「千連フェス」でS+キャラを確保してスタート！</div>
+        </div>
+        <div class="roadmap-step">
+          <div class="step-num">STEP 2</div>
+          <div class="step-text">征戦 3-10 クリアまで一気にメインストーリー進行</div>
+        </div>
+        <div class="roadmap-step">
+          <div class="step-num">STEP 3</div>
+          <div class="step-text">メインアタッカー1体に経験値・素材を集中投資</div>
+        </div>
+        <div class="roadmap-step">
+          <div class="step-num">STEP 4</div>
+          <div class="step-text">日課（放置回収・デイリーダンジョン）を毎日消化</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2026 ぷんぷん闘神 攻略wikiガイド All Rights Reserved.</p>
+    <p style="font-size: 0.75rem; color: #718096;">当サイトは『ぷんぷん闘神』の非公式ファン攻略サイトです。</p>
+  </footer>
 
 </body>
 </html>
