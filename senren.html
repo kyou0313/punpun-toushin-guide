@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【ぷんぷん闘神】千連フェスおすすめキャラと引き直しガチャ選び方</title>
+  <meta name="description" content="『ぷんぷん闘神』の千連フェス（引き直しガチャ）で誰を選ぶべきかを徹底解説！貂蝉・諸葛亮などおすすめS+キャラランキングをはじめ、手持ちに応じた選択フローや失敗しないための「3つのNG選び方」まで網羅。1,000回引き直しを賢く活用しよう！">
+  <style>
+    /* ==========================================
+       全体スタイル・変数設定
+       ========================================== */
+    :root {
+      --primary-color: #d9383a;
+      --primary-dark: #b12527;
+      --secondary-color: #f39c12;
+      --bg-body: #f2f4f7;
+      --card-bg: #ffffff;
+      --text-main: #2c3e50;
+      --border-color: #e2e8f0;
+
+      /* リスク度別カラー定義 */
+      --risk-high-border: #e74c3c;
+      --risk-high-bg: #fdf2f2;
+      --risk-high-tag: #e74c3c;
+
+      --risk-mid-border: #f39c12;
+      --risk-mid-bg: #fef9e7;
+      --risk-mid-tag: #f39c12;
+
+      --risk-low-border: #3498db;
+      --risk-low-bg: #ebf5fb;
+      --risk-low-tag: #3498db;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.75;
+      color: var(--text-main);
+      background-color: var(--bg-body);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================
+       ヘッダー・ナビゲーション
+       ========================================== */
+    header {
+      background-color: #1a202c;
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .nav-back {
+      font-size: 0.85rem;
+      color: #cbd5e0;
+      background: rgba(255,255,255,0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .nav-back:hover {
+      background: var(--primary-color);
+      color: #ffffff;
+    }
+
+    /* ==========================================
+       記事コンテナ
+       ========================================== */
+    .article-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h1.article-title {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: #111;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      padding: 10px 16px;
+      border-radius: 6px;
+      margin-top: 36px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary-color);
+      background-color: #fff5f5;
+      padding: 8px 12px;
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    strong {
+      color: var(--primary-dark);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 32px 0;
+    }
+
+    /* リスト表現 */
+    .info-list {
+      list-style: none;
+      background-color: #f8f9fa;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .info-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-list li::before {
+      content: "■";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-size: 0.8rem;
+    }
+
+    /* ==========================================
+       装飾テーブル（ランキング用）
+       ========================================== */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 24px;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 550px;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    .custom-table th {
+      background-color: #34495e;
+      color: #ffffff;
+      text-align: left;
+      padding: 10px 12px;
+      white-space: nowrap;
+    }
+
+    .custom-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    /* ==========================================
+       第3章：フローチャートコンポーネント
+       ========================================== */
+    .flow-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .flow-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      border-left: 5px solid var(--secondary-color);
+    }
+
+    .flow-header {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .flow-body {
+      font-size: 0.9rem;
+      background: #fff8eb;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .flow-reason {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    /* ==========================================
+       第4章：注意・警告カード (Warning Card)
+       ========================================== */
+    .warning-card {
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      border-left: 6px solid;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+
+    .warning-card.risk-high {
+      background-color: var(--risk-high-bg);
+      border-color: var(--risk-high-border);
+    }
+    .warning-card.risk-mid {
+      background-color: var(--risk-mid-bg);
+      border-color: var(--risk-mid-border);
+    }
+    .warning-card.risk-low {
+      background-color: var(--risk-low-bg);
+      border-color: var(--risk-low-border);
+    }
+
+    .warning-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .warning-card-title {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #111111;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .risk-badge {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .risk-badge.high { background-color: var(--risk-high-tag); }
+    .risk-badge.mid { background-color: var(--risk-mid-tag); }
+    .risk-badge.low { background-color: var(--risk-low-tag); }
+
+    .warning-card-body {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      color: #333333;
+    }
+
+    .warning-card-example {
+      font-size: 0.85rem;
+      color: #666;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 6px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .warning-card-solution {
+      background-color: #ffffff;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 0.88rem;
+      border: 1px dashed var(--border-color);
+    }
+
+    .warning-card-solution-title {
+      font-weight: bold;
+      color: #27ae60;
+      margin-bottom: 2px;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 0.8rem;
+      color: #718096;
+    }
+
+    /* レスポンシブ調整 */
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 0;
+      }
+      .article-container {
+        padding: 16px;
+        margin: 0;
+        border-radius: 0;
+      }
+      h1.article-title {
+        font-size: 1.3rem;
+      }
+      h2 {
+        font-size: 1.15rem;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <div class="site-title">ぷんぷn闘神 攻略wiki</div>
+      <a href="index.html" class="nav-back">トップへ戻る</a>
+    </div>
+  </header>
+
+  <!-- 記事メインコンテンツ -->
+  <article class="article-container">
+
+    <h1 class="article-title">【ぷんぷん闘神】千連フェスおすすめキャラと引き直しガチャ選び方</h1>
+
+    <p>スマホゲーム『ぷんぷん闘神』の目玉イベント「千連フェス（引き直しガチャ）」で誰を選ぶべきかを分かりやすく解説した完全攻略ガイドです！</p>
+    <p>最大1,000回（10連×100セット）もの試行が可能な引き直しガチャだからこそ、「なんとなく」で確定してしまうと後々の攻略で大きな差がついてしまいます。手持ちキャラクターの所持状況に合わせた最適な選び方や、絶対に避けるべき「3つのNG選び方」をチェックして、最高のスタートダッシュを決めましょう！</p>
+
+    <hr>
+
+    <!-- 第1章 -->
+    <h2>1. 千連フェスの基本仕様・解放条件まとめ</h2>
+    <p>まずは「千連フェス」がどのようなガチャシステムなのか、押さえておくべき基本仕様を確認しておきましょう。</p>
+
+    <ul class="info-list">
+      <li><strong>解放条件：</strong> メインストーリー（征戦）の特定ステージを突破することで段階的に解禁。</li>
+      <li><strong>最大試行回数：</strong> 最大1,000回分（10連×100セット）の引き直しが可能！納得がいく結果が出るまで何度でも挑戦できます。</li>
+      <li><strong>キープ機能：</strong> 気に入った10連結果を一時保存（キープ）可能。後からより良い結果と比較して最終決定できます。</li>
+      <li><strong>排出対象：</strong> 通常ガチャと同様に、最高レアリティのS+ランクキャラ（一部上位枠含む）が排出されます。</li>
+    </ul>
+
+    <hr>
+
+    <!-- 第2章 -->
+    <h2>2. 千連フェスおすすめキャラ選択優先度ランキング（SSS〜Sランク）</h2>
+    <p>千連フェスで優先して確保すべきおすすめキャラクターをランク別で紹介します。</p>
+
+    <h3>SSSランク（最優先・即確定レベル）</h3>
+    <p>獲得できればパーティの主軸として序盤から終盤まで大活躍する超優秀S+キャラです。</p>
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>キャラクター名</th>
+            <th>レア度・属性</th>
+            <th>役割</th>
+            <th>優先選択の理由・特徴</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>貂蝉</strong></td>
+            <td>S+ / 闇/他</td>
+            <td>攻撃型</td>
+            <td>単体トップクラスの高火力＋強力な行動妨害「魅惑」を所持。最優先で確保したい最強アタッカー。</td>
+          </tr>
+          <tr>
+            <td><strong>諸葛亮</strong></td>
+            <td>S+ / 風/他</td>
+            <td>支援/回復</td>
+            <td>味方全体のHP回復＋攻撃力10%UPバフを兼ね備える。編成するだけでパーティの耐久と火力を底上げする万能サポート。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>SSランク（高優先・大当たり）</h3>
+    <p>SSSランクに匹敵する強力なスキルを持ち、チーム全体の戦力を跳ね上げる強力なキャラです。</p>
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>キャラクター名</th>
+            <th>レア度・属性</th>
+            <th>役割</th>
+            <th>優先選択の理由・特徴</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>曹操</strong></td>
+            <td>S+ / 闇/他</td>
+            <td>攻撃/SP支援</td>
+            <td>全体攻撃をしつつ、50%の確率で味方全員のSPを1回復。スキル回転率を大幅に引き上げる。</td>
+          </tr>
+          <tr>
+            <td><strong>呂布</strong></td>
+            <td>S+ / 闇</td>
+            <td>攻撃型</td>
+            <td>圧倒的な物理範囲＆単体火力。SPを活用した一撃の威力が極めて高く、頼れるメインアタッカー。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Sランク（獲得推奨・シナジー枠）</h3>
+    <p>手持ちの構成や属性シナジー次第で非常に強力な役割を果たします。</p>
+    <div class="table-wrapper">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>キャラクター名</th>
+            <th>レア度・属性</th>
+            <th>役割</th>
+            <th>優先選択の理由・特徴</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>玉藻前</strong></td>
+            <td>S+ / 風</td>
+            <td>攻撃型</td>
+            <td>単体火力に加え、敵撃破時に通常攻撃が再発動（追撃）する優秀なアタッカー。</td>
+          </tr>
+          <tr>
+            <td><strong>劉備</strong></td>
+            <td>S+ / 風</td>
+            <td>防衛型</td>
+            <td>全体回復＋全体シールド＋被ダメージ軽減。高難易度ステージの攻略を安定させる鉄壁タンク。</td>
+          </tr>
+          <tr>
+            <td><strong>周瑜 / 孫策</strong></td>
+            <td>S+ / 火</td>
+            <td>魔法/攻撃</td>
+            <td>周瑜の全体火傷と孫策の追撃効果による「火傷シナジーコンボ」が非常に強力。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- 第3章 -->
+    <h2>3. 手持ち状況別！おすすめキャラ選択フローチャート</h2>
+    <p>「千連フェスを引く前に獲得した通常ガチャ・無料ガチャの結果」に合わせて選択するのが最も効果的です。</p>
+
+    <div class="flow-container">
+      <div class="flow-card">
+        <div class="flow-header">パターン①：「S+サポート（諸葛亮・曹操など）」を所持している場合</div>
+        <div class="flow-body">👉 <strong>選択：</strong> S+主力アタッカー（貂蝉、呂布、玉藻前）を確保！</div>
+        <div class="flow-reason"><strong>理由：</strong> サポートのバフ・回復を最大限活かす火力の軸が必要となるため。</div>
+      </div>
+
+      <div class="flow-card">
+        <div class="flow-header">パターン②：「S+アタッカー（貂蝉、呂布など）」を所持している場合</div>
+        <div class="flow-body">👉 <strong>選択：</strong> S+万能サポート（諸葛亮、曹操、劉備）またはアタッカー重複（星上げ素材）！</div>
+        <div class="flow-reason"><strong>理由：</strong> パーティの安定感を高めるか、メインアタッカーの「星上げ（限界突破）」でステータスを飛躍的に伸ばすのが効果的なため。</div>
+      </div>
+
+      <div class="flow-card">
+        <div class="flow-header">パターン③：確定配布キャラ（関銀屏・張星彩）軸で進めたい場合</div>
+        <div class="flow-body">👉 <strong>選択：</strong> 風属性と相性の良いサポート（諸葛亮、劉備）を確保！</div>
+        <div class="flow-reason"><strong>理由：</strong> 確定入手済みの風属性キャラを補強し、安全にストーリーを攻略できるため。</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- 第4章 -->
+    <h2>4. やってはいけない！千連フェスの「3つのNG選び方」</h2>
+    <p>千連フェスで失敗しないために、絶対に避けるべき3つの注意点とリスク度、その回避策です。</p>
+
+    <!-- NG_01 -->
+    <div class="warning-card risk-high">
+      <div class="warning-card-header">
+        <div class="warning-card-title">⚠️ 確定配布キャラ単体の選択</div>
+        <span class="risk-badge high">リスク：高</span>
+      </div>
+      <div class="warning-card-example">
+        <strong>NG例：</strong> チュートリアルで必ず手に入る『関銀屏（S+）』や『張星彩（S）』のみが含まれる10連結果で確定してしまう。
+      </div>
+      <div class="warning-card-body">
+        <strong>理由：</strong> ストーリー進行上で確実に手に入るキャラを千連フェス枠で受け取るのは非常にもったいないため。
+      </div>
+      <div class="warning-card-solution">
+        <div class="warning-card-solution-title">💡 解決策・回避ルート</div>
+        配布枠以外の未所持ガチャ限定S+キャラ（貂蝉・諸葛亮など）が含まれる結果を最優先で選びましょう。
+      </div>
+    </div>
+
+    <!-- NG_02 -->
+    <div class="warning-card risk-high">
+      <div class="warning-card-header">
+        <div class="warning-card-title">⚠️ S+キャラ非排出の10連結果で確定</div>
+        <span class="risk-badge high">リスク：極めて高</span>
+      </div>
+      <div class="warning-card-example">
+        <strong>NG例：</strong> Sランクキャラのみが複数出た結果で妥協し、確定ボタンを押してしまう。
+      </div>
+      <div class="warning-card-body">
+        <strong>理由：</strong> 最大1,000回（100セット）も引き直せるため、S+キャラを確保しないのは大きな損になるため。
+      </div>
+      <div class="warning-card-solution">
+        <div class="warning-card-solution-title">💡 解決策・回避ルート</div>
+        必ず「S+ランクキャラ1体以上 ＋ 有用なSランクキャラ複数」が含まれる神引き結果が出るまで、引き直しとキープ機能を使い倒しましょう！
+      </div>
+    </div>
+
+    <!-- NG_03 -->
+    <div class="warning-card risk-mid">
+      <div class="warning-card-header">
+        <div class="warning-card-title">⚠️ 星上げ（限界突破）を考慮しない分散選定</div>
+        <span class="risk-badge mid">リスク：中</span>
+      </div>
+      <div class="warning-card-example">
+        <strong>NG例：</strong> 手持ちキャラの被り育成（星上げ）を意識せず、無凸のS+キャラの「数」だけで選んでしまう。
+      </div>
+      <div class="warning-card-body">
+        <strong>理由：</strong> 『ぷんぷん闘神』は同キャラを使った「星上げ（限界突破）」によるステータス上昇値が非常に大きいため、無凸キャラが増えても後から育成が伸び悩む原因になるため。
+      </div>
+      <div class="warning-card-solution">
+        <div class="warning-card-solution-title">💡 解決策・回避ルート</div>
+        手持ちの主力キャラと重複して星上げが狙える結果か、単体性能が圧倒的なSSSランクキャラ（貂蝉・諸葛亮）の着実な確保を意識しましょう。
+      </div>
+    </div>
+
+  </article>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2026 ぷんぷん闘神 攻略wikiガイド All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
